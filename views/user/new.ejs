@@ -3,7 +3,13 @@
 	<form action="/user/create" method="POST" class="form-signin">
 		<h2 class="form-signing-heading">Create Account</h2>
 
-		
+		<% if(flash && flash.err) { %>
+			<ul class="alert alert-success">
+			<% Object.keys(flash.err).forEach(function(error) { %>
+				<li><%= JSON.stringify(flash.err[error]) %></li>
+			<% }) %>
+		</ul>
+		<% } %>
 
 		<input type="text" class="form-control" placeholder="email address" name="email">
 		<input type="password" class="form-control" placeholder="password" name="password">

@@ -19,7 +19,7 @@ module.exports = {
   	},
   	admin: {
   		type: 'boolean',
-  		//defaultsTo: false
+  		defaultsTo: false
   	},
   	// questionsAnswered: {
   	// 	collection: 'list',
@@ -34,18 +34,18 @@ module.exports = {
   	}
   },
 
-  // beforeCreate: function(values, next) {
-  // 	if (!values.password || values.password != values.confirmation) {
-  // 		return next({err: ["Password doesn't match password confirmation"]});
-  // 	}
+  beforeCreate: function(values, next) {
+  	if (!values.password || values.password != values.confirmation) {
+  		return next({err: ["Password doesn't match password confirmation"]});
+  	}
 
-  // 	require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
-  // 		if (err) return next(err);
+  	require('bcrypt').hash(values.password, 10, function passwordEncrypted(err, encryptedPassword) {
+  		if (err) return next(err);
 
-  // 		values.encryptedPassword = encryptedPassword;
-  // 		values.online = true;
-  // 		next();
-  // 	});
-  // }
+  		values.encryptedPassword = encryptedPassword;
+  		values.online = true;
+  		next();
+  	});
+  }
 };
 
