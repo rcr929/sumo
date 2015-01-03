@@ -1,0 +1,16 @@
+body {
+	padding-top:4em;
+}
+
+.form-signin {
+	width: 30%;
+	min-width: 30em;
+	padding: 1em 2em 2.4em;
+	margin: 0 auto 1.8em;
+	border-radius: 2em;
+	background: lightgrey;
+	border: solid 1px black;
+}
+.form-signin input {
+	margin-bottom: .5em;
+}
