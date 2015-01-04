@@ -27,7 +27,7 @@
             + Import stylesheets from other directories
             + Use a different or additional preprocessor, like SASS, SCSS or Stylus
     -->
-    <script src="/js/jquery.js"></script>
+    <script src="/js/dependencies/jquery.js"></script>
 
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/bootstrap.css">
@@ -40,8 +40,25 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <a class="navbar-brand" href="/">Home</a>
-        <a class="navbar-brand pull-right" href="/user/new">Register</a>
-        <a class="navbar-brand pull-right" href="/session/new">Sign In</a>
+        <div class="navbar-right">
+            <% if (session.authenticated) { %>
+              <a class="navbar-brand navbar-right" href="/session/destroy">Sign out</a>
+            <% } %>
+          </div>
+          <% if (!session.authenticated) { %>
+          <a class="navbar-brand navbar-right" href="/user/new">Sign up</a>
+            <form class="navbar-form navbar-right" action="/session/create">
+            <div class="form-group">
+              <input type="text" placeholder="Email" name="email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" name="password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+            <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+          </form>
+          
+          <% } %>
       </div>
     </div>
     <%- body %>
@@ -99,8 +116,8 @@
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/jquery.js"></script>
     <script src="/js/bootstrap.js"></script>
-    <script src="/js/jquery.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>

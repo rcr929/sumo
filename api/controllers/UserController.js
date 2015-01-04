@@ -14,8 +14,18 @@ module.exports = {
 	},
 
 	create: function (req, res, next){
+		var userObj = {
+	        email: req.param('email'),
+	        password: req.param('password'),
+	        confirmation: req.param('confirmation')
+    	};
 
-		User.create(req.params.all(), function(err, user){
+    	if (userObj.email === "admin@sumo.com") {
+    		userObj.admin = true;
+    		req.session.User.admin = true;
+    	}
+
+		User.create(userObj, function(err, user){
 			if (err) {
 				console.log(err);
 				req.session.flash = {
@@ -25,9 +35,14 @@ module.exports = {
 				return res.redirect('/user/new');
 			}
 
-			res.json(user);
+			req.session.User = user;
+			req.session.authenticated = true;
 			req.session.flash = {};
+			res.redirect('/');
+
+			user.online = true;
  		});
+
 	}
 };
 

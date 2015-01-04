@@ -34,7 +34,7 @@ module.exports.policies = {
   * and its actions                                                          *
   *                                                                          *
   ***************************************************************************/
-  // UserController: {
+  // user: {
   //   '*': 'flash'
   // }
 	// RabbitController: {

@@ -17,6 +17,10 @@ module.exports = {
   	encryptedPassword: {
   		type: 'string'
   	},
+  	online: {
+      type: 'boolean',
+      defaultsTo: false
+    },
   	admin: {
   		type: 'boolean',
   		defaultsTo: false
@@ -33,7 +37,6 @@ module.exports = {
   		return obj;
   	}
   },
-
   beforeCreate: function(values, next) {
   	if (!values.password || values.password != values.confirmation) {
   		return next({err: ["Password doesn't match password confirmation"]});
