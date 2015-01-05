@@ -17,12 +17,11 @@ module.exports = {
 		var userObj = {
 	        email: req.param('email'),
 	        password: req.param('password'),
-	        confirmation: req.param('confirmation')
+	        confirmation: req.param('confirmation'),
     	};
 
     	if (userObj.email === "admin@sumo.com") {
     		userObj.admin = true;
-    		req.session.User.admin = true;
     	}
 
 		User.create(userObj, function(err, user){
@@ -39,8 +38,6 @@ module.exports = {
 			req.session.authenticated = true;
 			req.session.flash = {};
 			res.redirect('/');
-
-			user.online = true;
  		});
 
 	}

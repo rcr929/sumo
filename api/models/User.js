@@ -7,6 +7,8 @@
 
 module.exports = {
 
+  connection: 'mysql',
+
   attributes: {
   	email: {
   		type: 'string',
@@ -17,18 +19,14 @@ module.exports = {
   	encryptedPassword: {
   		type: 'string'
   	},
-  	online: {
-      type: 'boolean',
-      defaultsTo: false
-    },
   	admin: {
   		type: 'boolean',
   		defaultsTo: false
   	},
-  	// questionsAnswered: {
-  	// 	collection: 'list',
-  	// 	defaultsTo: {}
-  	// },
+  	questionsAnswered: {
+  		type: 'array',
+  		defaultsTo: []
+  	},
   	toJSON:function() {
   		var obj = this.toObject();
   		delete obj.password;
