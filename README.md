@@ -22,4 +22,8 @@ All you have to do is adjust it to your settings.
 
 Last but not least, run `sails lift` to start the application.  I didn't provide a default migrate setting for this application, meaning you have the option to drop, alter, or keep your database everytime you lift sails.  Now everything should be up and running at http://localhost:1337/
 
+Admin Account
+-------------
+Once your in the application, you'll have to make an admin account to enjoy the apps full functionality.  All you have to do is click on `Sign up` in the navigation bar and make a user account with the email "admin@sumo.com" (the password doesn't matter).  When you're logged in with the admin account, you'll be able to view the question results and create new ones.
+
 Enjoy!
