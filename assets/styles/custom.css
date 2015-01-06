@@ -8,9 +8,25 @@ body {
 	padding: 1em 2em 2.4em;
 	margin: 0 auto 1.8em;
 	border-radius: 2em;
-	background: lightgrey;
+	background: #F0F0FA;
 	border: solid 1px black;
 }
 .form-signin input {
 	margin-bottom: .5em;
+}
+
+.admin-hub {
+	width: 60%;
+	min-width: 30em;
+	padding: 1em 2em 2.4em;
+	margin: 0 auto 1.8em;
+	border-radius: 2em;
+	background: #F0F0FA;
+	border: solid 1px black;
+}
+.panel:first-child {
+	margin-top: 2em;
+}
+.admin-hub .panel-collapse {
+	margin-left: 2em;
 }

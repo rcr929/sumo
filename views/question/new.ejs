@@ -3,10 +3,11 @@
 	<form action="/question/create" method="POST" class="form-signin">
 		<h2 class="form-signing-heading">Create Question</h2>
 
-		<input type="text" class="form-control" placeholder="Type Your Question" name="name">
-		<div style="margin:0.7em 0 1em 1.5em;">
+		<input type="text" class="form-control" placeholder="Type Your Question (don't forget a question mark)" name="name">
+		<div style="margin-bottom:1em;">
+			<h4>Answers</h4>
 			<div id="answers"><input type="text" class="form-control answer" placeholder="Answer1" name="answer1"></div>
-			<button id="addAnswer" class="btn btn-danger">+Answer</button>
+			<button id="addAnswer" class="btn btn-sm btn-danger">Add Answer</button>
 		</div>
 
 		<input type="submit" class="btn btn-lg btn-primary btn-block" value="Create"/>

@@ -1,0 +1,16 @@
+<div class="container">
+	
+	<form action="/question/saveAnswer" method="POST" class="form-signin">
+		<h5>Please answer a quick question before enjoying our website.</h5>
+		<h3><%= question.name %></h3>
+		<div class="container">
+		<% _.each(question.answers, function(answer) { %>
+			<input type="radio" name="answer" value="<%= answer.id %>">  <%= answer.name %></input><br>
+		<% }) %>
+		</div>
+
+		<input type="submit" class="btn btn-lg btn-primary btn-block" value="Submit"/>
+		<input type="hidden" name="_csrf" value="<%= _csrf %>"/>
+	</form>
+
+</div>

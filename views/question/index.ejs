@@ -1,0 +1,29 @@
+<div class="container admin-hub">
+	<h3>Admin Hub <a href="/question/new" class="btn btn-primary pull-right">New Question</a></h3>
+		
+		<div class="panel-group" id="accordion">
+			<% _.each(questions, function(question) { %>
+		   <div class="panel panel-success">
+		   
+		        <div class="panel-heading">
+		            <h4 class="panel-title">
+		            <a data-toggle="collapse" data-target="#accordion<%= question.id %>" href="#accordion<%= question.id %>">
+		              Question <%= question.id %>: <%= question.name %>
+		            </a>
+		           </h4>
+		        </div>
+				
+		        <div id="accordion<%= question.id %>" class="panel-collapse collapse">
+		          <div class="panel-body">
+		           		<% _.each(question.answers, function(answer) { %>
+						<label><%= answer.name %>: <%= answer.count %></label><br>
+						<% }) %>
+		          </div>
+		        </div>
+		  </div>
+		  <% }) %>
+			 
+		</div>
+
+</div>
+

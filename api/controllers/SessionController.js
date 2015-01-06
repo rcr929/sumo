@@ -62,12 +62,23 @@ module.exports = {
 					return;
 				}
 
+				//transfer session info to user
+				req.session.questionsAnswered.forEach(function(q) {
+					if(user.questionsAnswered.indexOf(q) == -1) {
+						user.questionsAnswered.push(q);
+					}
+				});
+				req.session.questionsAnswered = _.clone(user.questionsAnswered);
+				User.update(user.id, user, function userUpdated(err){
+					if(err) res.redirect('/question/show');
+				});
+
 				// Log user in
 				req.session.authenticated = true;
 				req.session.User = user;
 
 				if(req.session.User.admin) {
-					res.redirect('/user');
+					res.redirect('/question');
 					return;
 				}
 
