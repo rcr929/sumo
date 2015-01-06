@@ -6,4 +6,5 @@ $('#addAnswer').click(function(e) {
 	console.log("adding");
 	answers++;
 	answersDiv.append('<input type="text" class="form-control answer" placeholder="Answer' + answers + '" name="answer' + answers + '">');
+	$('.answer:last').focus();
 });
