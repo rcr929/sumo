@@ -69,7 +69,9 @@ module.exports = {
 	        if(rand < 0) rand = 0;
 	 		
 	 		if(questions.length == 0){
-	 			question.name = "Sorry. There Are No Questions In The Database"
+	 			question = {
+	 				name: "Sorry. There Are No Questions In The Database"
+	 			};
 	 		}
 	 		else if (questions.length <= req.session.questionsAnswered.length) {
 	 			question = questions[rand];
