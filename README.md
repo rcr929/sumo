@@ -18,7 +18,7 @@ mysql: {
     database: 'sumo'
 }
 ```
-All you have to do is adjust it to your settings.
+All you have to do is adjust it to match your MySQL inputs.
 
 Last but not least, run `sails lift` to start the application.  I didn't provide a default migrate setting for this application, meaning you have the option to drop, alter, or keep your database everytime you lift sails.  Now everything should be up and running at http://localhost:1337/
 
