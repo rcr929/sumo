@@ -73,10 +73,12 @@ module.exports = {
 	 				name: "Sorry. There Are No Questions In The Database"
 	 			};
 	 		}
+	 		//user has already answered every question in the database
 	 		else if (questions.length <= req.session.questionsAnswered.length) {
 	 			question = questions[rand];
 	 		}
 	 		else {
+	 			//I know, not the greatest way to prevent user from seeing previous questions
 	 			while(req.session.questionsAnswered.indexOf(questions[rand].id) != -1) {
 	 				rand = Math.floor((Math.random() * questions.length));
 	        		if(rand < 0) rand = 0;
