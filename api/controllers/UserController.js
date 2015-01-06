@@ -37,7 +37,12 @@ module.exports = {
 			req.session.User = user;
 			req.session.authenticated = true;
 			req.session.flash = {};
-			res.redirect('/');
+			if(user.admin) {
+				res.redirect('question');
+			}
+			else {
+				res.redirect('/');
+			}
  		});
 
 	}
